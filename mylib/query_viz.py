@@ -16,8 +16,8 @@ def query_transform():
     """
     spark = SparkSession.builder.appName("Query").getOrCreate()
     query = (
-            "SELECT t1.country, t1.beer_servings, t1.spirit_servings, t1.wine_servings, "
-            "t1.total_litres_of_pure_alcohol, t1.id, "
+            "SELECT t1.country, t1.beer_servings, t1.spirit_servings, "
+            "t1.wine_servings, t1.total_litres_of_pure_alcohol, t1.id, "
             "COUNT(*) as total_rows "
             "FROM toy_delta t1 "
             "INNER JOIN alcohol_delta t2 ON t1.id = t2.id "
