@@ -18,6 +18,10 @@ In this project, we built a Databricks ETL pipeline tool that can extract data f
 
 Here we have three blocks in this job pipeline. The first block `Extract` takes the `mylib/extract.py` to extract data from the online resource, the `Transform` task conduct the data transformation and data sink, then in the `Query_visualization` block, we can test the quereis and make one sample visualization. 
 
+## Visualization
+<img width="824" alt="Screenshot 2023-11-13 at 11 14 04 PM" src="https://github.com/nogibjj/Data_ETL_Pipeline_Databricks_TR/assets/104114843/db5b1a75-10fd-4ad4-aaf8-8ed60cb370aa">
+
+
 ## Format, lint, and test
 - `make format`
 - `make lint`
