@@ -3,7 +3,6 @@
 
 Tianji Rao
 
- 
 ## Overview
 In this project, we built a Databricks ETL pipeline tool that can extract data from a online resource (https://github.com/fivethirtyeight/data/blob/master/alcohol-consumption/drinks.csv) and use a toy dataframe to transform the data. The combined dataframe is loaded and data sink is also conducted. 
 
