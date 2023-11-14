@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 databricks_host = os.getenv("SERVER_HOSTNAME")
 bearer_token = os.getenv("ACCESS_TOKEN")
-FILESTORE_PATH = "dbfs:/FileStore/tables/mini11"
+FILESTORE_PATH = "dbfs:/FileStore/mini11"
 api_endpoint = f"https://{databricks_host}/api/2.0"
 
 # Function to validate the existence of a path in DBFS
