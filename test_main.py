@@ -1,31 +1,28 @@
-"""
-Test databricks fucntionaility
-"""
 import requests
-from dotenv import load_dotenv
 import os
+from dotenv import load_dotenv
 
-# Load environment variables
+# Initialize environment variables
 load_dotenv()
-server_h = os.getenv("SERVER_HOSTNAME")
-access_token = os.getenv("ACCESS_TOKEN")
-FILESTORE_PATH = "dbfs:/FileStore/mini11"
-url = f"https://{server_h}/api/2.0"
+databricks_host = os.getenv("SERVER_HOSTNAME")
+bearer_token = os.getenv("ACCESS_TOKEN")
+FILESTORE_PATH = "dbfs:/FileStore/tables/mini11"
+api_endpoint = f"https://{databricks_host}/api/2.0"
 
-# Function to check if a file path exists and auth settings still work
-def check_filestore_path(path, headers): 
+# Function to validate the existence of a path in DBFS
+def test_validate_dbfs_path(): 
+    http_headers = {'Authorization': f'Bearer {bearer_token}'}
     try:
-        response = requests.get(url + f"/dbfs/get-status?path={path}", headers=headers)
-        response.raise_for_status()
-        return response.json()['path'] is not None
-    except Exception as e:
-        print(f"Error checking file path: {e}")
+        dbfs_response = requests.get(f"{api_endpoint}/dbfs/get-status?path={FILESTORE_PATH}", headers=http_headers)
+        dbfs_response.raise_for_status()
+        return 'path' in dbfs_response.json()
+    except Exception as error:
+        print(f"Encountered error while verifying DBFS path: {error}")
         return False
 
-# Test if the specified FILESTORE_PATH exists
-def test_databricks():
-    headers = {'Authorization': f'Bearer {access_token}'}
-    assert check_filestore_path(FILESTORE_PATH, headers) is True
+# Function to test the functionality of Databricks configuration
+def test_run_databricks():
+    assert test_validate_dbfs_path(), "DBFS path does not exist or cannot be accessed"
 
 if __name__ == "__main__":
-    test_databricks()
+    test_run_databricks()
