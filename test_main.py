@@ -13,7 +13,10 @@ api_endpoint = f"https://{databricks_host}/api/2.0"
 def test_validate_dbfs_path(): 
     http_headers = {'Authorization': f'Bearer {bearer_token}'}
     try:
-        dbfs_response = requests.get(f"{api_endpoint}/dbfs/get-status?path={FILESTORE_PATH}", headers=http_headers)
+        dbfs_response = requests.get(
+            f"{api_endpoint}/dbfs/get-status?path={FILESTORE_PATH}", 
+            headers=http_headers
+            )
         dbfs_response.raise_for_status()
         return 'path' in dbfs_response.json()
     except Exception as error:
@@ -22,7 +25,7 @@ def test_validate_dbfs_path():
 
 # Function to test the functionality of Databricks configuration
 def test_run_databricks():
-    assert test_validate_dbfs_path(), "DBFS path does not exist or cannot be accessed"
+    assert test_validate_dbfs_path()
 
 if __name__ == "__main__":
     test_run_databricks()
