@@ -1,5 +1,5 @@
 # Databricks ETL Pipeline Tools
-<img width="742" alt="Screenshot 2023-11-13 at 10 01 11 PM" src="https://github.com/nogibjj/TianjiRao_Pandas_Desc_Stat_Script/assets/104114843/3cfcf2fb-b997-4c25-b6dd-ea8512191f7a">
+[![CI](https://github.com/nogibjj/Data_ETL_Pipeline_Databricks_TR/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/Data_ETL_Pipeline_Databricks_TR/actions/workflows/cicd.yml)
 
 Tianji Rao
 
