@@ -15,6 +15,7 @@ In this project, we built a Databricks ETL pipeline tool that can extract data f
 3. Create the workflow using the scripts in this repo
 4. Write queries for data processing
 5. Bulid a Pipeline and run it
+6. Use Git push to auto trigger this pipeline
 
 ## Some components
 1. `Data Extraction`: The extract operation defined in the provided Python script retrieves datasets from specified URLs (url and url2) using the Databricks REST API. The extracted data is then stored in Databricks FileStore with the file paths FILESTORE_PATH + "/alcohol.csv" and FILESTORE_PATH + "/toy.csv". The operation ensures the existence of the target directory, downloads the data from the URLs, and uploads it to the designated file paths in the Databricks FileStore.
